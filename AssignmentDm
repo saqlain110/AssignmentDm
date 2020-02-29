@@ -1,0 +1,133 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+         public double Fastme(double a, double b, double c)
+        {
+
+            return Math.Pow(a,b)*Math.Abs(c);
+
+
+        }
+         public int GCD(int a, int b)
+        {
+            if (a==0)
+            {
+                return b;
+            }
+            else
+            {
+                return GCD(b % a, a);
+            }
+
+
+
+        }
+
+        static void Main(string[] args)
+        {
+            //Ans1)
+           
+ 
+            Console.WriteLine("Enter the matrix length");
+            int m = Convert.ToInt32(Console.ReadLine());
+            int[] array = new int[m];
+            for (int i = 0; i < m; i++)
+            {
+                Console.WriteLine("element of A");
+                array[i] = Convert.ToInt32(Console.ReadLine());
+            }
+
+
+            int[,] array2 = new int[m, m];
+            Console.Write("A--");
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.Write(array[i]);
+            }
+            Console.WriteLine();
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < m; j++)
+                {
+                    array2[i, j] = 0;
+                }
+
+            }
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < m; j++)
+                {
+                    Console.Write(array2[i, j] + " ");
+                }
+
+                Console.WriteLine();
+            }
+
+            Console.WriteLine("Enter the no of relation's");
+            int r = Convert.ToInt32(Console.ReadLine());
+            int k = 0;
+            while (r > k)
+            {
+
+                Console.Write("x--");
+                int x = Convert.ToInt32(Console.ReadLine());
+                Console.Write("y--");
+                int y = Convert.ToInt32(Console.ReadLine());
+                if (array.Contains(x) && array.Contains(y))
+                {
+                    array2[x-1, y-1] = 1;
+                    k++;
+                }
+                else
+                {
+                    Console.WriteLine("Re Input");
+
+                }
+                Console.WriteLine();
+
+
+            }
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < m; j++)
+                {
+                    Console.Write(array2[i, j] + " ");
+                }
+
+                Console.WriteLine();
+            }
+
+            Console.ReadLine();
+
+
+        
+
+
+            Program pro = new Program();
+            Console.WriteLine("Enter number for fastme");
+            double B = Convert.ToInt32(Console.ReadLine());
+            double K = Convert.ToInt32(Console.ReadLine());
+            double M = Convert.ToInt32(Console.ReadLine());
+            double N = pro.Fastme(2, 2, -3);
+            Console.WriteLine(N);
+            Console.WriteLine("Enter value for GCD");
+            int p = Convert.ToInt32(Console.ReadLine());
+            int o = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("GCD=" + pro.GCD(p, o));
+
+
+
+        }
+    }
+
+}
+
+       
